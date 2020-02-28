@@ -23,7 +23,7 @@ def compile(){
             mvn "package"  
     }
     stage('Nexus Upload'){
-            curl -v -u admin:admin --upload-file target/gameoflife.war http://127.0.0.1:8081/repository/artifacts/demoproject/
+           sh 'curl -v -u admin:admin --upload-file target/gameoflife.war http://127.0.0.1:8081/repository/artifacts/demoproject/'
     }
 }
 
