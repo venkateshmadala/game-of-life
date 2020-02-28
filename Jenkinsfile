@@ -25,6 +25,9 @@ def compile(){
     stage('Nexus Upload'){
            sh 'curl -v -u admin:admin --upload-file target/gameoflife.war http://127.0.0.1:8081/repository/artifacts/demoproject/'
     }
+    stage('Sonar Analysis'){
+           mvn 'sonar:sonar  -Dsonar.login=admin -Dsonar.password=admin -Dsonar.url=http://127.0.0.1:9000/sonar'
+    }
 }
 
 def mvn(String goals) {
