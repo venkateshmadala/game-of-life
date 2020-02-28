@@ -26,7 +26,7 @@ def compile(){
            sh 'curl -v -u admin:admin --upload-file gameoflife-web/target/gameoflife.war http://127.0.0.1:8081/repository/artifacts/demoproject/'
     }
     stage('Sonar Analysis'){
-           mvn 'sonar:sonar  -Dsonar.login=admin -Dsonar.password=admin -Dsonar.url=http://127.0.0.1:9000/sonar'
+           mvn 'sonar:sonar  -Dsonar.login=admin -Dsonar.password=admin -Dsonar.host.url=http://127.0.0.1:9000/sonar'
     }
 }
 
