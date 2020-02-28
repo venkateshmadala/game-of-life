@@ -22,6 +22,9 @@ def compile(){
             def pom_version = version()
             mvn "package"  
     }
+    stage('Nexus Upload'){
+            curl -v -u admin:admin --upload-file target/gameoflife.war http://127.0.0.1:8081/repository/artifacts/demoproject/
+    }
 }
 
 def mvn(String goals) {
