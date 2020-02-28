@@ -16,9 +16,9 @@ def compile(){
     }
     stage('Test') {
             def pom_version = version()
-            mvn "compile"  
+            mvn "test"  
     }
-    stage('Test') {
+    stage('Package') {
             def pom_version = version()
             mvn "package"  
     }
